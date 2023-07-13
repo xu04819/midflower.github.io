@@ -4,8 +4,69 @@
   <meta charset="utf-8">
   <meta 名字="viewport" content="width=device-width">
   <标题>菜鸟教程</标题>
-</head>
-<内容>
-<p>这是一个段落</p>
+  <style>
+      /* 弹窗样式 */
+      内容 {
+        background-color: rgba(255,255,255,1);
+      }
+      .modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 1; /* 设置叠放顺序（置顶） */
+        top: 150px;
+        left: 100px;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+      }
+
+      /* 弹窗内容样式 */
+      .modal-content {
+        background-color: white; /* 弹窗背景颜色 */
+        margin: auto;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <内容>
+    <!-- 弹窗部分 -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <!-- <span id="closeBtn" class="close">&times;</span>  关闭按钮 -->
+        <p>更新内容</p >
+        <button id="myButton">网址更新</button>
+      </div>
+    </div>
+
+    <!-- 网页跳转部分 -->
+    <script>
+      // 获取弹窗和按钮元素
+      var modal = document.getElementById("myModal");
+      var button = document.getElementById("myButton");
+      // var close = document.getElementById("closeBtn");
+
+      // 页面加载完成后显示弹窗
+      window.onload = function() {
+        modal.style。display = "block";
+      };
+
+      // 设置弹窗不可手动关闭
+      modal.addEventListener("click", function(事件) {
+        event.stopPropagation(); // 阻止事件冒泡
+      });
+
+      // 跳转到指定网页
+      button.onclick = function () {
+        redirectToPage();
+      };
+
+      function redirectToPage() {
+        window.位置。href = "https://baidu.com"; // 在这里替换为实际的网页链接
+      }
+    </script>
 </内容>
 </html>
